@@ -211,6 +211,9 @@ nav ul li a:hover::after {
     background: white;
     padding: 2rem;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .service-card:hover {
@@ -230,9 +233,14 @@ nav ul li a:hover::after {
     transform: scale(1.1);
 }
 
+.service-card:hover .service-description {
+    color: var(--primary-color);
+}
+
 .service-card h3 {
     position: relative;
     padding-bottom: 10px;
+    margin: 1rem 0 0.5rem;
 }
 
 .service-card h3::after {
@@ -244,6 +252,14 @@ nav ul li a:hover::after {
     width: 50px;
     height: 2px;
     background: var(--primary-color);
+}
+
+.service-description {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: var(--transition);
 }
 
 .schedule table {
