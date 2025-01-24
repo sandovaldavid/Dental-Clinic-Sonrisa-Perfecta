@@ -110,8 +110,19 @@ nav ul li a:hover::after {
 
 /* Mejoras en el hero */
 .hero {
+    min-height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: white;
     overflow: hidden;
+    background: linear-gradient(135deg,
+            var(--primary-color) 0%,
+            var(--secondary-color) 100%);
 }
 
 .hero::before {
@@ -121,8 +132,13 @@ nav ul li a:hover::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 123, 255, 0.4));
+    background:
+        linear-gradient(45deg,
+            rgba(0, 123, 255, 0.9),
+            rgba(0, 86, 179, 0.85)),
+        url('/static/images/hero-bg.jpg') center/cover;
     z-index: 1;
+    animation: heroGradient 8s ease-in-out infinite;
 }
 
 .hero * {
@@ -131,13 +147,48 @@ nav ul li a:hover::after {
 }
 
 .hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
     animation: fadeInDown 1s ease-out;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
 }
 
 .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
     animation: fadeInUp 1s ease-out 0.5s;
     animation-fill-mode: both;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+.hero .cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: white;
+    color: var(--primary-color);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out 1s;
+    animation-fill-mode: both;
+}
+
+.hero .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.hero .cta-button:active {
+    transform: translateY(-1px);
 }
 
 .service-grid {
@@ -266,6 +317,20 @@ nav ul li a:hover::after {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes heroGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
 
