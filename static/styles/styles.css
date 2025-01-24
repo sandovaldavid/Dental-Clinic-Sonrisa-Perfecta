@@ -606,6 +606,15 @@ html {
 }
 
 @media (max-width: 480px) {
+    nav{
+        padding: 1rem 0;
+    }
+
+    .services,
+    .schedule,
+    .contact {
+        padding-bottom: 80px;
+    }
 
     /* Further refinements for mobile */
     .hero h1 {
