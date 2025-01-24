@@ -17,8 +17,12 @@ body {
 }
 
 main{
-    padding: 0 6rem;
+    padding: 0;
     padding-top: 80px;
+}
+
+.services, .schedule, .contact{
+    padding: 80px 6rem;
 }
 
 *,
@@ -111,6 +115,7 @@ nav ul li a:hover::after {
 /* Mejoras en el hero */
 .hero {
     min-height: 100vh;
+    min-width: 100vw;
     position: relative;
     display: flex;
     flex-direction: column;
