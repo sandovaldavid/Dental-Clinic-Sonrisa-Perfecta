@@ -690,3 +690,132 @@ html {
         display: none;
     }
 }
+
+/* Small device optimization (iPhone SE, etc) */
+@media screen and (max-width: 375px) {
+
+    /* Header adjustments */
+    nav {
+        padding: 0.5rem;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    /* Hero section fixes */
+    .hero {
+        min-height: calc(100vh - 60px);
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0;
+    }
+
+    .hero .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Services section improvements */
+    .services,
+    .schedule,
+    .contact {
+        padding: 30px 1rem 0;
+    }
+
+    .service-grid {
+        gap: 1rem;
+    }
+
+    .service-card {
+        padding: 0.8rem;
+    }
+
+    .service-card img {
+        height: 140px;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
+    .service-description {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+    }
+
+    /* Schedule table adjustments */
+    .schedule table {
+        font-size: 0.8rem;
+    }
+
+    .schedule th,
+    .schedule td {
+        padding: 0.5rem;
+    }
+
+    /* Contact section fixes */
+    .contact-info p {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Footer improvements */
+    footer {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+    }
+
+    .footer-content {
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+
+    .footer-info img {
+        width: 120px;
+    }
+
+    .footer-links h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+
+    /* General text adjustments */
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Fix for notched phones */
+@supports (padding: max(0px)) {
+    .hero {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-top: max(1rem, env(safe-area-inset-top));
+    }
+}
