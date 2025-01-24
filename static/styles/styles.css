@@ -480,17 +480,36 @@ html {
     background: var(--secondary-color);
 }
 
+/* Base responsive settings */
+@media (max-width: 1024px) {
+
+    .services,
+    .schedule,
+    .contact {
+        padding: 60px 3rem 0;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        max-width: 600px;
+    }
+}
+
 @media (max-width: 768px) {
+
+    /* Header/Navigation */
     header {
-        position: fixed;
-        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
     }
 
     nav {
-        height: auto;
         padding: 1rem;
         flex-direction: column;
-        gap: 1rem;
     }
 
     .logo img {
@@ -498,24 +517,79 @@ html {
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 1rem;
+        display: none;
         width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+
+    nav.active ul {
+        display: flex;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: calc(100vh - 80px);
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.25rem;
+        padding: 0 1rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    /* Services Section */
+    .services,
+    .schedule,
+    .contact {
+        padding: 40px 1.5rem 0;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-card img {
+        height: 180px;
+    }
+
+    /* Schedule Section */
+    .schedule table {
+        font-size: 0.9rem;
+    }
+
+    .schedule th,
+    .schedule td {
+        padding: 0.8rem;
+    }
+
+    /* Contact Section */
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info p {
+        padding: 1rem;
         text-align: center;
     }
 
-    nav ul li a {
-        display: block;
-        padding: 0.5rem;
-    }
-
-    nav ul li a::after {
-        bottom: 0;
-    }
-
+    /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
         text-align: center;
+        padding: 0 1.5rem;
     }
 
     .footer-info {
@@ -524,5 +598,95 @@ html {
 
     .footer-social {
         justify-content: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Further refinements for mobile */
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero .cta-button {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .service-card {
+        padding: 1rem;
+    }
+
+    .service-card img {
+        height: 160px;
+    }
+
+    .service-description {
+        font-size: 0.9rem;
+    }
+
+    .schedule table {
+        font-size: 0.85rem;
+    }
+
+    .schedule th,
+    .schedule td {
+        padding: 0.6rem;
+    }
+
+    /* Adjust spacing */
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .service-card:hover {
+        transform: none;
+    }
+
+    .contact-info p:hover {
+        transform: none;
+    }
+
+    .footer-links a:hover {
+        transform: none;
+    }
+}
+
+/* Ensure proper display on landscape mode */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .hero {
+        min-height: auto;
+        color: black;
+        background: none;
+    }
+
+    .hero::before {
+        display: none;
+    }
+
+    .cta-button,
+    .footer-social,
+    nav ul {
+        display: none;
     }
 }
