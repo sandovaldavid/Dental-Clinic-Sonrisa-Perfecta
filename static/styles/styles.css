@@ -18,6 +18,7 @@ body {
 
 main{
     padding: 0 6rem;
+    padding-top: 80px;
 }
 
 *,
@@ -32,47 +33,75 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
-nav {
-    background: rgb(255, 255, 255);
-    backdrop-filter: blur(10px);
-    transition: var(--transition);
+header {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
-    padding: 0 10%;
+    top: 0;
     z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
     align-items: center;
 }
 
 .logo img {
-    width: 300px;
-    height: 100px;
+    width: auto;
+    height: 60px;
     transition: var(--transition);
 }
 
-nav ul li a {
-    position: relative;
-    font-weight: 500;
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 nav ul {
     display: flex;
-    gap: 2rem;
-    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
     margin: 0;
     padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: var(--transition);
 }
 
 nav ul li a::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
     background: var(--primary-color);
-    transition: var(--transition);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
 }
 
 nav ul li a:hover::after {
@@ -237,20 +266,6 @@ nav ul li a:hover::after {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
-
-    .service-grid {
-        gap: 1rem;
-    }
-
-    nav {
-        padding: 1rem 3%;
     }
 }
 
