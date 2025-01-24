@@ -1,0 +1,340 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --accent-color: #17a2b8;
+    --text-color: #333;
+    --transition: all 0.3s ease-in-out;
+    --focus-outline: 3px solid var(--accent-color);
+}
+
+body {
+    margin: 0;
+    padding: 0 ;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+main{
+    padding: 0 6rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 3px;
+}
+
+nav {
+    background: rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    position: fixed;
+    width: 100%;
+    padding: 0 10%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 300px;
+    height: 100px;
+    transition: var(--transition);
+}
+
+nav ul li a {
+    position: relative;
+    font-weight: 500;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Mejoras en el hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 123, 255, 0.4));
+    z-index: 1;
+}
+
+.hero * {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    animation: fadeInDown 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: both;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+    transition: var(--transition);
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.service-card:hover img {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.service-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.schedule table {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+.schedule th,
+.schedule td {
+    padding: 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.schedule tr {
+    transition: var(--transition);
+}
+
+.schedule tr:hover {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+    transform: scale(1.01);
+}
+
+.schedule thead th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-info p {
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+    color: var(--text-color);
+    background: #f8f9fa;
+}
+
+.contact-info p:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid {
+        gap: 1rem;
+    }
+
+    nav {
+        padding: 1rem 3%;
+    }
+}
+
+:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--secondary-color);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.cta-button:hover::before {
+    width: 100%;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Barra de desplazamiento personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .contact-info {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
