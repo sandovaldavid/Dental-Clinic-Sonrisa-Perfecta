@@ -25,6 +25,7 @@ main{
     display: inline-block;
     position: relative;
     transition: var(--transition);
+    width: 20%;
 }
 
 .logo-link:active .logo img {
@@ -470,11 +471,6 @@ footer {
     100% {
         background-position: 0% 50%;
     }
-}
-
-:focus {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 3px;
 }
 
 .cta-button {
