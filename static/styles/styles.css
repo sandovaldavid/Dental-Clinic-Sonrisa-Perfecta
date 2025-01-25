@@ -35,6 +35,7 @@ main{
 .logo {
     position: relative;
     overflow: hidden;
+    justify-content: center;
 }
 
 .logo img {
@@ -536,6 +537,14 @@ html {
         font-size: 3rem;
         max-width: 600px;
     }
+
+    .logo{
+        justify-content: flex-start;
+    }
+
+    .logo-link{
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -550,8 +559,16 @@ html {
         flex-direction: column;
     }
 
+    .logo-link {
+        width: 100%
+    }
+
+    .logo{
+        justify-content: center;
+    }
+
     .logo img {
-        height: 50px;
+        height: 60px;
     }
 
     nav ul {
@@ -756,8 +773,8 @@ html {
         padding: 0.5rem;
     }
 
-    .logo img {
-        height: 40px;
+    .logo{
+        justify-content: center;
     }
 
     /* Hero section fixes */
