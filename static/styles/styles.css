@@ -21,6 +21,48 @@ main{
     padding-top: 80px;
 }
 
+.logo-link {
+    display: inline-block;
+    position: relative;
+    transition: var(--transition);
+}
+
+.logo-link:active .logo img {
+    transform: scale(0.95);
+}
+
+.logo {
+    position: relative;
+    overflow: hidden;
+}
+
+.logo img {
+    width: auto;
+    height: 70px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.logo-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+    opacity: 0;
+    border-radius: 50%;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.logo-link:active::after {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.2;
+}
+
 .services, .schedule, .contact{
     padding: 80px 6rem 0;
 }
@@ -666,6 +708,16 @@ html {
 
     .footer-links a:hover {
         transform: none;
+    }
+
+    .logo-link:active img {
+        transform: scale(0.95);
+    }
+}
+
+@media (hover: hover) {
+    .logo-link:hover img {
+        transform: scale(1.05);
     }
 }
 
